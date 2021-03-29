@@ -82,7 +82,6 @@
                     echo "<li>$key: Voiture $cur_immat de marque $cur_marque (couleur $cur_couleur)</li>";
                 }
             }
-            
 
         echo "
         </ul>";
