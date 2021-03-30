@@ -8,6 +8,12 @@ Class Conf {
         "password" => "root"
     );
 
+    static private $debug = True;
+
+    static public function getDebug(){
+        return self::$debug;
+    }
+
     static public function getLogin(){
         return self::$databases['login'];
     }

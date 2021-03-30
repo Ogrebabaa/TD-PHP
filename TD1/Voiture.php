@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 
 Class Voiture {
     
@@ -12,10 +13,7 @@ Class Voiture {
             $this->setImmat($immat);
             $this->setCouleur($couleur);
             $this->setMarque($marque);
-        } else {
-            
-        }
-        
+        } 
     }
 
     //GETTERS
@@ -56,6 +54,16 @@ Class Voiture {
         $marque = $this->marque;
 
         echo "Voiture $immat de marque $marque (couleur $couleur)";
+    }
+
+    static public function getAllVoitures($pdo) {
+        
+        $rep = $pdo->query("SELECT * FROM voiture");
+        $rep->setFetchMode(PDO::FETCH_CLASS, 'Voiture');
+        $tab_voit = $rep->fetchAll();
+
+        return $tab_voit;
+
     }
 }
 

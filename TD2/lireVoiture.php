@@ -16,17 +16,19 @@ foreach($tab_obj as $key => $value) {
     echo "<br>";
 }
 
+echo "<br>";
 //Ex 7
-$rep = $pdo->query("SELECT * FROM voiture");
-$rep->setFetchMode(PDO::FETCH_CLASS, 'Voiture');
-$tab_voit = $rep->fetchAll();
+// $rep = $pdo->query("SELECT * FROM voiture");
+// $rep->setFetchMode(PDO::FETCH_CLASS, 'Voiture');
+// $tab_voit = $rep->fetchAll();
 
-foreach($tab_obj as $key => $value) {
-    echo "Immatriculation :".$value->immat;
-    echo "<br>";
-    echo "Marque :".$value->marque;
-    echo "<br>";
-    echo "Couleur :".$value->couleur;
+//Ex 8
+$tab_voit = Voiture::getAllVoitures($pdo);
+
+foreach($tab_voit as $key => $value) {
+    $value->afficher();
     echo "<br>";
 }
+
+
 ?>
