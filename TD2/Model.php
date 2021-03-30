@@ -17,10 +17,12 @@ Class Model {
             echo $e->getMessage();
             die();
         }
+
+        return self::$pdo;
     }
     
 }
 
-Model::Init();
+$pdo = Model::Init();
 
 ?>
