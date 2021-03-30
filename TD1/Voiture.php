@@ -7,10 +7,15 @@ Class Voiture {
     private $marque;
     private $immat;
 
-    function __construct($immat, $marque, $couleur) {
-        $this->setImmat($immat);
-        $this->setCouleur($couleur);
-        $this->setMarque($marque);
+    function __construct($immat = NULL, $marque = NULL, $couleur = NULL) {
+        if (!is_null($immat) && !is_null($marque) && !is_null($couleur) ) {
+            $this->setImmat($immat);
+            $this->setCouleur($couleur);
+            $this->setMarque($marque);
+        } else {
+            
+        }
+        
     }
 
     //GETTERS
