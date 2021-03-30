@@ -3,7 +3,7 @@
 Class Conf {
     static private $databases = array(
         "hostname" => "localhost",
-        "databases" => "td_voiture",
+        "databases" => "covoiturage",
         "login" => "root",
         "password" => "root"
     );

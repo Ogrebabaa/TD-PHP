@@ -51,6 +51,20 @@ Class Utilisateur {
         $login = $this->getLogin();
         echo "Nom: $nom, Prénom: $prenom, Login: $login";
     }
+
+    // --------------------------------------------------------------------------- 
+    // METHODES
+    // --------------------------------------------------------------------------- 
+    
+    static public function getAllUtilisateurs($pdo) {
+        $rep = $pdo->query("SELECT * FROM utilisateur");
+        $rep->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
+        $tab_utils = $rep->fetchAll();
+
+        return $tab_utils;
+    }
+
+    
 }
 
 ?>
