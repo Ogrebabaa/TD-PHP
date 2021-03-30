@@ -2,10 +2,10 @@
 
 Class Conf {
     static private $databases = array(
-        "hostname" => "localhost:8888",
+        "hostname" => "localhost",
         "databases" => "td_voiture",
         "login" => "root",
-        "password" => "passwd"
+        "password" => "root"
     );
 
     static public function getLogin(){
