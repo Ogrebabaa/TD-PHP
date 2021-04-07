@@ -1,5 +1,4 @@
 <?php
-require_once('Conf.php');
 
 Class Trajet {
 
