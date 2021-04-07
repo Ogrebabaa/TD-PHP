@@ -48,21 +48,22 @@ Class ModelVoiture {
 
     // Other
 
-    // public function afficher() {
-    //     $immat = $this->immat;
-    //     $couleur = $this->couleur;
-    //     $marque = $this->marque;
+    public function afficher() {
+        $immat = $this->immat;
+        $couleur = $this->couleur;
+        $marque = $this->marque;
 
-    //     echo "ModelVoiture $immat de marque $marque (couleur $couleur)";
-    // }
+        echo "Voiture $immat de marque $marque (couleur $couleur)";
+    }
 
-    public function save($pdo) {
+    public function save() {
+        require_once 'Model.php';
         $immat = $this->getImmat();
         $marque = $this->getMarque();
         $couleur = $this->getCouleur();
 
         try {
-            $sql = "INSERT INTO ModelVoiture(immat, marque, couleur) VALUES (:immat, :marque, :couleur)";
+            $sql = "INSERT INTO voiture(immat, marque, couleur) VALUES (:immat, :marque, :couleur)";
             $req_prep = $pdo->prepare($sql);
             $values = [
                 "immat" => $immat,
@@ -82,9 +83,9 @@ Class ModelVoiture {
 
     }
 
-    static public function getAllModelVoitures($pdo) {
-        
-        $rep = $pdo->query("SELECT * FROM ModelVoiture");
+    static public function getAllVoitures() {
+        require_once 'Model.php';
+        $rep = $pdo->query("SELECT * FROM voiture");
         $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelVoiture');
         $tab_voit = $rep->fetchAll();
 
@@ -92,9 +93,9 @@ Class ModelVoiture {
 
     }
 
-    static public function getModelVoitureByImmat($immat, $pdo) {
-        
-        $sql = "SELECT * from ModelVoiture WHERE immat=:nom_tag";
+    static public function getVoitureByImmat($immat) {
+        require_once 'Model.php';
+        $sql = "SELECT * from voiture WHERE immat=:nom_tag";
         // Préparation de la requête
         $req_prep = $pdo->prepare($sql);
         $values = array(
