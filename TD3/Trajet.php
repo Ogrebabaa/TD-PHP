@@ -1,4 +1,5 @@
 <?php
+require_once('Conf.php');
 
 Class Trajet {
 
@@ -82,7 +83,12 @@ Class Trajet {
             $req_prep = $pdo->prepare($sql);
             $req_prep->execute($data);
         } catch (PDOException $e) {
-
+            if (Conf::getDebug()) {
+                echo $e->getMessage();
+            } else {
+                echo "une erreur est survenue, <a href=\"\">retour à la page d'accueil </a>";
+            }
+            
         }
         
 
