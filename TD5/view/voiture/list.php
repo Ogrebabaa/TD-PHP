@@ -10,10 +10,10 @@ echo "<ul>";
 foreach ($tab_v as $v) {
     echo '
     <li>
-        <a href="routeur.php?action=read&immat=' . $v->getImmat() . '"> 
+        <a href="index.php?action=read&immat=' . $v->getImmat() . '"> 
             Voiture d\'immatriculation ' . $v->getImmat() . '.
         </a>
-        <a href="routeur.php?action=delete&immat=' . $v->getImmat() . '"> 
+        <a href="index.php?action=delete&immat=' . $v->getImmat() . '"> 
             Supprimer
         </a>
     </li>';

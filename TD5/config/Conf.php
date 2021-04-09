@@ -3,9 +3,9 @@
 Class Conf {
     static private $databases = array(
         "hostname" => "localhost",
-        "databases" => "covoiturage",
-        "login" => "root",
-        "password" => "root"
+        "databases" => "moreauv",
+        "login" => "moreauv",
+        "password" => "si7nahP4eiph"
     );
 
     static private $debug = True;
